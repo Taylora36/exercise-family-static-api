@@ -9,7 +9,7 @@ update this file to implement the following already declared methods:
 from random import randint
 
 class FamilyStructure:
-    def __init__(self, last_name):
+    def __init__(self, last_name: str):
         self.last_name = last_name
 
         # example list of members
@@ -21,7 +21,7 @@ class FamilyStructure:
 
     def add_member(self, member):
         # fill this method and update the return
-        pass
+        self._members.append(member)
 
     def delete_member(self, id):
         # fill this method and update the return
@@ -29,7 +29,14 @@ class FamilyStructure:
 
     def get_member(self, id):
         # fill this method and update the return
-        pass
+        mem = next(
+            filter(
+                lambda x: x['id'] == id,
+                self._members
+                ),
+                {}
+        )
+        
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
